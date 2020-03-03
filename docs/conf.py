@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 #
 # crispy-form-foundation documentation build configuration file, created by
 # sphinx-quickstart on Sat Nov 15 20:21:48 2014.
@@ -53,8 +52,8 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'crispy-form-foundation'
-copyright = u'2014, David THENON'
+project = 'crispy-form-foundation'
+copyright = '2014, David THENON'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -114,7 +113,7 @@ try:
 except ImportError:
     pass
 else:
-    html_theme = "sphinx_rtd_theme"
+    html_theme = 'sphinx_rtd_theme'
 
     html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 
@@ -200,22 +199,22 @@ htmlhelp_basename = 'crispy-form-foundationdoc'
 # -- Options for LaTeX output ---------------------------------------------
 
 latex_elements = {
-# The paper size ('letterpaper' or 'a4paper').
-#'papersize': 'letterpaper',
+    # The paper size ('letterpaper' or 'a4paper').
+    # 'papersize': 'letterpaper',
 
-# The font size ('10pt', '11pt' or '12pt').
-#'pointsize': '10pt',
+    # The font size ('10pt', '11pt' or '12pt').
+    # 'pointsize': '10pt',
 
-# Additional stuff for the LaTeX preamble.
-#'preamble': '',
+    # Additional stuff for the LaTeX preamble.
+    # 'preamble': '',
 }
 
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-  ('index', 'crispy-form-foundation.tex', u'crispy-form-foundation Documentation',
-   u'David THENON', 'manual'),
+    ('index', 'crispy-form-foundation.tex', 'crispy-form-foundation Documentation',
+     'David THENON', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
@@ -244,8 +243,8 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'crispy-form-foundation', u'crispy-form-foundation Documentation',
-     [u'David THENON'], 1)
+    ('index', 'crispy-form-foundation', 'crispy-form-foundation Documentation',
+     ['David THENON'], 1)
 ]
 
 # If true, show URL addresses after external links.
@@ -258,9 +257,9 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  ('index', 'crispy-form-foundation', u'crispy-form-foundation Documentation',
-   u'David THENON', 'crispy-form-foundation', 'One line description of project.',
-   'Miscellaneous'),
+    ('index', 'crispy-form-foundation', 'crispy-form-foundation Documentation',
+     'David THENON', 'crispy-form-foundation', 'One line description of project.',
+     'Miscellaneous'),
 ]
 
 # Documents to append as an appendix to all manuals.

@@ -47,7 +47,7 @@ class Div(crispy_forms_layout.Div):
         Div('form_field_1', 'form_field_2', css_id='div-example',
             css_class='divs')
     """
-    template = "%s/layout/div.html"
+    template = '%s/layout/div.html'
 
 
 class Panel(crispy_forms_layout.Div):
@@ -63,9 +63,10 @@ class Panel(crispy_forms_layout.Div):
         Panel('form_field_1', 'form_field_2', css_id='div-example',
               css_class='divs')
     """
+
     def __init__(self, field, *args, **kwargs):
         kwargs['css_class'] = kwargs.get('css_class', '')+' panel'
-        super(Panel, self).__init__(field, *args, **kwargs)
+        super().__init__(field, *args, **kwargs)
 
 
 class Callout(crispy_forms_layout.Div):
@@ -82,6 +83,7 @@ class Callout(crispy_forms_layout.Div):
         Callout('form_field_1', 'form_field_2', css_id='div-example',
               css_class='divs')
     """
+
     def __init__(self, field, *args, **kwargs):
         kwargs['css_class'] = kwargs.get('css_class', '')+' callout'
-        super(Callout, self).__init__(field, *args, **kwargs)
+        super().__init__(field, *args, **kwargs)

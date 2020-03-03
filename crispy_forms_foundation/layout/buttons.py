@@ -42,7 +42,7 @@ class ButtonHolder(crispy_forms_layout.ButtonHolder):
             Submit('Save', 'Save')
         )
     """
-    template = "%s/layout/buttonholder.html"
+    template = '%s/layout/buttonholder.html'
 
 
 class ButtonHolderPanel(ButtonHolder):
@@ -50,9 +50,10 @@ class ButtonHolderPanel(ButtonHolder):
     Act like ``ButtonHolder`` but add a ``panel`` class name on the main
     ``div``.
     """
+
     def __init__(self, field, *args, **kwargs):
         kwargs['css_class'] = kwargs.get('css_class', '')+' panel'
-        super(ButtonHolderPanel, self).__init__(field, *args, **kwargs)
+        super().__init__(field, *args, **kwargs)
 
 
 class ButtonHolderCallout(ButtonHolder):
@@ -60,6 +61,7 @@ class ButtonHolderCallout(ButtonHolder):
     Act like ``ButtonHolder`` but add a ``callout`` class name on the main
     ``div``.
     """
+
     def __init__(self, field, *args, **kwargs):
         kwargs['css_class'] = kwargs.get('css_class', '')+' callout'
         super(ButtonHolderPanel, self).__init__(field, *args, **kwargs)
@@ -81,7 +83,7 @@ class ButtonGroup(crispy_forms_layout.LayoutObject):
             Button('Cancel', 'Cancel'),
         )
     """
-    template = "%s/layout/buttongroup.html"
+    template = '%s/layout/buttongroup.html'
 
     def __init__(self, *fields, **kwargs):
         self.fields = list(fields)
@@ -208,18 +210,17 @@ class ButtonElement(crispy_forms_layout.BaseInput):
               Content string is marked as safe so you can put anything you
               want;
     """
-    template = "%s/layout/basebutton.html"
+    template = '%s/layout/basebutton.html'
     input_type = 'button'
     field_classes = 'button'
 
     def __init__(self, field, *args, **kwargs):
         self.content = kwargs.pop('content', None)
-        super(ButtonElement, self).__init__(field, *args, **kwargs)
+        super().__init__(field, *args, **kwargs)
 
     def render(self, form, form_style, context, template_pack=TEMPLATE_PACK):
         context['button_content'] = self.content
-        return super(ButtonElement, self).render(form, form_style, context,
-                                                 template_pack)
+        return super().render(form, form_style, context, template_pack)
 
 
 class ButtonSubmit(ButtonElement):

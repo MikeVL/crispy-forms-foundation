@@ -13,6 +13,7 @@ from crispy_forms_foundation.layout import (
     SwitchField, InlineSwitchField
 )
 
+
 def part_1_crispies(pack=None):
     return [
         Row(
@@ -59,7 +60,8 @@ def part_2_crispies(pack=None):
             Column(
                 Row(
                     Column(
-                        SwitchField('checkbox_switch_input_1', switch_class="round tiny"),
+                        SwitchField('checkbox_switch_input_1',
+                                    switch_class='round tiny'),
                         css_class='small-3'
                     ),
                     Column(

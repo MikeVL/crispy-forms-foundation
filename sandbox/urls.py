@@ -9,11 +9,11 @@ from django.views.generic.base import TemplateView
 urlpatterns = [
     # Dummy homepage just for simple ping view
     url(r'^$', TemplateView.as_view(
-        template_name="homepage.html"
+        template_name='homepage.html'
     ), name='home'),
 
-     url(r'^crispy-forms/',
-         include('sandbox.demo.urls', namespace='demo')),
+    url(r'^crispy-forms/',
+        include('sandbox.demo.urls', namespace='demo')),
 ]
 
 try:

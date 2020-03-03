@@ -23,12 +23,12 @@ def write_output(filepath, pack, filename, content):
     written in output attempts.
     """
     if (filepath and filepath != '.'
-       and not os.path.exists(os.path.join(filepath, pack))):
+            and not os.path.exists(os.path.join(filepath, pack))):
         os.makedirs(os.path.join(filepath, pack))
 
     destination = os.path.join(filepath, pack, filename)
 
-    with io.open(destination, 'w', encoding='utf-8') as f:
+    with open(destination, 'w', encoding='utf-8') as f:
         f.write(content)
 
     return destination
@@ -55,7 +55,7 @@ def render_attempted_output(path, **kwargs):
     context_kwargs.update(**kwargs)
     context = Context(context_kwargs)
 
-    with io.open(path, 'r', encoding='utf-8') as f:
+    with open(path, encoding='utf-8') as f:
         template = Template(f.read())
 
     return template.render(context)
@@ -69,7 +69,7 @@ def get_rendered_template(form, **kwargs):
     Template is different depending helper is given or not in kwargs.
     """
     context_kwargs = {
-        "form": form,
+        'form': form,
     }
     context_kwargs.update(**kwargs)
     context = Context(context_kwargs)

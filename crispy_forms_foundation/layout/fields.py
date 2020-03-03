@@ -38,7 +38,7 @@ class Field(crispy_forms_layout.Field):
         Field('field_name', style="color: #333;", css_class="whatever",
               id="field_name")
     """
-    template = "%s/field.html"
+    template = '%s/field.html'
 
 
 class FakeField(Field):
@@ -55,10 +55,10 @@ class FakeField(Field):
 
     You should use this field in last resort.
     """
+
     def render(self, form, form_style, context, template_pack=TEMPLATE_PACK):
         context['fake_field'] = True
-        return super(FakeField, self).render(form, form_style, context,
-                                             template_pack)
+        return super().render(form, form_style, context, template_pack)
 
 
 class Hidden(crispy_forms_layout.Hidden):
@@ -78,8 +78,8 @@ class MultiField(crispy_forms_layout.MultiField):
     """
     MultiField container. Render to a MultiField
     """
-    template = "%s/layout/multifield.html"
-    field_template = "%s/multifield.html"
+    template = '%s/layout/multifield.html'
+    field_template = '%s/multifield.html'
 
 
 class SplitDateTimeField(Field):
@@ -90,7 +90,7 @@ class SplitDateTimeField(Field):
 
     Simply use a specific template
     """
-    template = "%s/layout/splitdatetime_field.html"
+    template = '%s/layout/splitdatetime_field.html'
 
 
 class InlineField(Field):
@@ -112,7 +112,7 @@ class InlineField(Field):
 
     ``label_column``, ``input_column``, ``label_class``, are optional argument.
     """
-    template = "%s/layout/inline_field.html"
+    template = '%s/layout/inline_field.html'
 
     def __init__(self, field, label_column='large-3', input_column='large-9',
                  label_class='', *args, **kwargs):
@@ -121,7 +121,7 @@ class InlineField(Field):
         self.input_column = input_column+' columns'
         self.label_class = label_class
 
-        super(InlineField, self).__init__(field, *args, **kwargs)
+        super().__init__(field, *args, **kwargs)
 
     def render(self, form, form_style, context, template_pack=TEMPLATE_PACK):
         context['label_column'] = self.label_column
@@ -142,10 +142,11 @@ class InlineJustifiedField(InlineField):
     Same as InlineField but default is to be right aligned with a vertical
     padding
     """
+
     def __init__(self, field, *args, **kwargs):
         default = 'middle text-right inline'
         kwargs['label_class'] = kwargs.get('label_class', None) or default
-        super(InlineJustifiedField, self).__init__(field, *args, **kwargs)
+        super().__init__(field, *args, **kwargs)
 
 
 class SwitchField(Field):
@@ -162,18 +163,17 @@ class SwitchField(Field):
         SwitchField('field_name', style="color: #333;", css_class="whatever",
                     id="field_name")
     """
-    template = "%s/switch.html"
+    template = '%s/switch.html'
 
     def __init__(self, field, *args, **kwargs):
         self.switch_class = ['switch'] + kwargs.pop('switch_class', '').split()
         kwargs['class'] = (kwargs.pop('class', '') + ' switch-input').strip()
 
-        super(SwitchField, self).__init__(field, *args, **kwargs)
+        super().__init__(field, *args, **kwargs)
 
     def render(self, form, form_style, context, template_pack=TEMPLATE_PACK):
-        context['switch_class'] = " ".join(self.switch_class)
-        return super(SwitchField, self).render(form, form_style, context,
-                                               template_pack)
+        context['switch_class'] = ' '.join(self.switch_class)
+        return super().render(form, form_style, context, template_pack)
 
 
 class InlineSwitchField(InlineField):
@@ -202,7 +202,7 @@ class InlineSwitchField(InlineField):
     ``label_column``, ``input_column``, ``label_class``, ``switch_class`` are
     optional argument.
     """
-    template = "%s/inline_switch.html"
+    template = '%s/inline_switch.html'
 
     def __init__(self, field, *args, **kwargs):
         self.switch_class = ['switch']+kwargs.pop('switch_class', '').split()
@@ -210,9 +210,8 @@ class InlineSwitchField(InlineField):
         kwargs['input_column'] = kwargs.pop('input_column', 'large-4')
         kwargs['class'] = (kwargs.pop('class', '') + ' switch-input').strip()
 
-        super(InlineSwitchField, self).__init__(field, *args, **kwargs)
+        super().__init__(field, *args, **kwargs)
 
     def render(self, form, form_style, context, template_pack=TEMPLATE_PACK):
-        context['switch_class'] = " ".join(self.switch_class)
-        return super(InlineSwitchField, self).render(form, form_style, context,
-                                                     template_pack)
+        context['switch_class'] = ' '.join(self.switch_class)
+        return super().render(form, form_style, context, template_pack)

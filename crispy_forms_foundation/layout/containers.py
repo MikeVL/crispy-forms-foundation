@@ -52,7 +52,7 @@ class Fieldset(crispy_forms_layout.Fieldset):
             'form_field_2'
         )
     """
-    template = "%s/layout/fieldset.html"
+    template = '%s/layout/fieldset.html'
 
 
 class Container(crispy_forms_bootstrap.Container):
@@ -61,13 +61,13 @@ class Container(crispy_forms_bootstrap.Container):
     Class attribute ``active_css_class`` so it's compatible with Foundation
     5 and 6.
     """
-    css_class = ""
-    active_css_class = "active"
+    css_class = ''
+    active_css_class = 'active'
 
     def get_active_css_class(self, template_pack):
         # Foundation-6 addon only which use unusual class name
         if template_pack == 'foundation-6':
-            return "is-active"
+            return 'is-active'
         return self.active_css_class
 
     def render(self, form, form_style, context, template_pack=TEMPLATE_PACK,
@@ -78,8 +78,7 @@ class Container(crispy_forms_bootstrap.Container):
                 self.css_class += ' ' + active_classname
         else:
             self.css_class = self.css_class.replace(active_classname, '')
-        return super(Container, self).render(form, form_style, context,
-                                             template_pack)
+        return super().render(form, form_style, context, template_pack)
 
 
 class ContainerHolder(crispy_forms_bootstrap.ContainerHolder):
@@ -105,7 +104,7 @@ class TabHolder(crispy_forms_bootstrap.TabHolder):
     The first ``TabItem`` containing a field error will be marked as
     *active* if any, else this will be just the first ``TabItem``.
     """
-    template = "%s/layout/tab-holder.html"
+    template = '%s/layout/tab-holder.html'
     default_active_tab = None
 
     def render(self, form, form_style, context, template_pack=TEMPLATE_PACK):
@@ -118,7 +117,7 @@ class TabHolder(crispy_forms_bootstrap.TabHolder):
         # accordion group needs the parent div id to set `data-parent` (I don't
         # know why). This needs to be a unique id
         if not self.css_id:
-            self.css_id = "-".join(["tabsholder", str(randint(1000, 9999))])
+            self.css_id = '-'.join(['tabsholder', str(randint(1000, 9999))])
 
         for tab in self.fields:
             tab.active = False
@@ -165,8 +164,8 @@ class TabItem(Container):
 
     ``TabItem`` layout item has no real utility out of a ``TabHolder``.
     """
-    template = "%s/layout/tab-item.html"
-    link_template = "%s/layout/tab-link.html"
+    template = '%s/layout/tab-item.html'
+    link_template = '%s/layout/tab-link.html'
 
     def has_errors(self, form):
         """
@@ -209,7 +208,7 @@ class AccordionHolder(crispy_forms_bootstrap.Accordion):
     The first ``AccordionItem`` containing a field error will be marked as
     *active* if any, else this will be just the first ``AccordionItem``.
     """
-    template = "%s/layout/accordion-holder.html"
+    template = '%s/layout/accordion-holder.html'
 
     def render(self, form, form_style, context, template_pack=TEMPLATE_PACK,
                **kwargs):
@@ -222,7 +221,7 @@ class AccordionHolder(crispy_forms_bootstrap.Accordion):
         # accordion group needs the parent div id to set `data-parent` (I don't
         # know why). This needs to be a unique id
         if not self.css_id:
-            self.css_id = "-".join(["accordion", str(randint(1000, 9999))])
+            self.css_id = '-'.join(['accordion', str(randint(1000, 9999))])
 
         # Active first 'AccordionItem' containing a field error if any, else
         # active first holder item
@@ -258,4 +257,4 @@ class AccordionItem(crispy_forms_bootstrap.AccordionGroup):
 
         AccordionItem("group name", "form_field_1", "form_field_2")
     """
-    template = "%s/layout/accordion-item.html"
+    template = '%s/layout/accordion-item.html'

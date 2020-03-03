@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-from __future__ import unicode_literals, absolute_import
 from copy import deepcopy
 
 from django import forms
@@ -17,7 +15,7 @@ from crispy_forms.helper import FormHelper
 from .layout import Submit, HTML, InlineSwitchField
 
 
-class FoundationFormMixin(object):
+class FoundationFormMixin:
     """
     Mixin to implement a layout helper that will automatically build a form
     layout.
@@ -57,20 +55,20 @@ class FoundationFormMixin(object):
     """
     title = None
     layout = None
-    error_title = _("Errors :")
+    error_title = _('Errors :')
     form_id = None
-    classes = "foundation-form"
-    action = ""
-    method = "post"
+    classes = 'foundation-form'
+    action = ''
+    method = 'post'
     attrs = {}
     switches = True
     submit = True
-    title_templatestring = u"<h3 class=\"subheader\">{0}</h3>"
+    title_templatestring = "<h3 class=\"subheader\">{0}</h3>"
 
     def init_helper(self):
         # Put required HTML attribute on required fields so they are managed by
         # Abide (if enabled)
-        if "data_abide" in self.attrs:
+        if 'data_abide' in self.attrs:
             for field_name, field in self.fields.items():
                 if hasattr(self, 'instance'):
                     field_value = getattr(self.instance, field_name, None)
@@ -80,8 +78,8 @@ class FoundationFormMixin(object):
                     and not ((isinstance(field, FileField) or
                               isinstance(field, ImageField))
                              and field_value):
-                    field.widget.attrs["required"] = ""
-                    field.abide_msg = _("This field is required.")
+                    field.widget.attrs['required'] = ''
+                    field.abide_msg = _('This field is required.')
 
         if not self.layout:
             # Start with an empty layout
@@ -118,7 +116,7 @@ class FoundationFormMixin(object):
                 if isinstance(self.fields[pointer[1]].widget,
                               forms.CheckboxInput):
                     field = InlineSwitchField(pointer[1],
-                                              switch_class="inline")
+                                              switch_class='inline')
                     self.replace_layout_object(pointer[0], field)
 
         if self.submit:
@@ -127,7 +125,7 @@ class FoundationFormMixin(object):
             elif isinstance(self.submit, str):
                 self.helper.add_input(Submit('submit', self.submit))
             else:
-                self.helper.add_input(Submit('submit', _("Submit")))
+                self.helper.add_input(Submit('submit', _('Submit')))
 
     def replace_layout_object(self, position, instead):
         previous_layout_object = None
@@ -166,8 +164,9 @@ class FoundationForm(FoundationFormMixin, forms.Form):
             slug = forms.CharField(label='Slug', required=False)
 
     """
+
     def __init__(self, *args, **kwargs):
-        super(FoundationForm, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         self.init_helper()
 
 
@@ -194,6 +193,7 @@ class FoundationModelForm(FoundationFormMixin, forms.ModelForm):
                 fields = ['my_field', 'my_field_2', 'my_field_3']
 
     """
+
     def __init__(self, *args, **kwargs):
-        super(FoundationModelForm, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         self.init_helper()

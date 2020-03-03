@@ -1,8 +1,7 @@
 """
 Django settings for project demonstration
 """
-#from __future__ import absolute_import, unicode_literals
-
+from crispy_forms_foundation.settings import *
 from sandbox.settings.base import *
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -25,7 +24,6 @@ MIDDLEWARE[0:0] = [  # noqa
 #
 # Default crispy_forms_foundation settings
 #
-from crispy_forms_foundation.settings import *
 
 
 #

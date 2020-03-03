@@ -20,14 +20,14 @@ def test_tab(output_test_path, render_output, rendered_template, helper,
             TabItem('My tab 1', 'simple'),
             TabItem('My tab 2', 'opt_in'),
             TabItem('My tab 3', 'longtext'),
-            css_id="meep-meep"
+            css_id='meep-meep'
         )
     )
 
     rendered = rendered_template(form, helper=helper)
 
     attempted = render_output(os.path.join(output_test_path, pack,
-                                           "test_tab.html"))
+                                           'test_tab.html'))
     #write_output(output_test_path, pack, "test_tab.html", rendered)
 
     assert parse_html(attempted) == parse_html(rendered)
@@ -44,14 +44,14 @@ def test_accordion(output_test_path, render_output, rendered_template, helper,
             AccordionItem('Group 1', 'simple'),
             AccordionItem('Group 2', 'opt_in'),
             AccordionItem('Group 3', 'longtext'),
-            css_id="meep-meep"
+            css_id='meep-meep'
         )
     )
 
     rendered = rendered_template(form, helper=helper)
 
     attempted = render_output(os.path.join(output_test_path, pack,
-                                           "test_accordion.html"))
+                                           'test_accordion.html'))
     #write_output(output_test_path, pack, "test_accordion.html", rendered)
 
     assert parse_html(attempted) == parse_html(rendered)

@@ -26,14 +26,14 @@ def test_buttongroup(output_test_path, render_output, rendered_template,
     rendered = rendered_template(form, helper=helper)
 
     attempted = render_output(os.path.join(output_test_path, pack,
-                                           "test_buttongroup.html"))
+                                           'test_buttongroup.html'))
     #write_output(output_test_path, pack, "test_buttongroup.html", rendered)
 
     assert parse_html(attempted) == parse_html(rendered)
 
 
 def test_buttonelement(output_test_path, render_output, rendered_template,
-                     helper, client):
+                       helper, client):
     form = BasicInputForm()
     pack = helper.template_pack
 
@@ -45,7 +45,7 @@ def test_buttonelement(output_test_path, render_output, rendered_template,
     rendered = rendered_template(form, helper=helper)
 
     attempted = render_output(os.path.join(output_test_path, pack,
-                                           "test_buttonelement.html"))
+                                           'test_buttonelement.html'))
     #write_output(output_test_path, pack, "test_buttonelement.html", rendered)
 
     assert attempted == rendered

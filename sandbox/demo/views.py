@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 Views
 """
@@ -18,21 +17,21 @@ from crispy_forms import __version__ as crispy_version
 from .forms import FormByFieldsetsForm, FormByTabsForm, FormByAccordionsForm
 
 
-class CrispyFoundationMixin(object):
+class CrispyFoundationMixin:
     def get_versions(self):
         return {
-            "foundation_version": self.kwargs.get('foundation_version'),
-            "django_crispy_forms": crispy_version,
-            "crispy_forms_foundation": crispy_foundation_version,
+            'foundation_version': self.kwargs.get('foundation_version'),
+            'django_crispy_forms': crispy_version,
+            'crispy_forms_foundation': crispy_foundation_version,
         }
 
     def get_context_data(self, **kwargs):
-        context = super(CrispyFoundationMixin, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context.update(self.get_versions())
         return context
 
 
-class FormContainersMixin(object):
+class FormContainersMixin:
     def get_success_url(self):
         return reverse('demo:crispy-demo-success', kwargs={
             'foundation_version': int(self.kwargs.get('foundation_version'))
@@ -42,9 +41,9 @@ class FormContainersMixin(object):
         """
         Pass template pack argument
         """
-        kwargs = super(FormContainersMixin, self).get_form_kwargs()
+        kwargs = super().get_form_kwargs()
         kwargs.update({
-            'pack': "foundation-{}".format(self.kwargs.get('foundation_version'))
+            'pack': 'foundation-{}'.format(self.kwargs.get('foundation_version'))
         })
         return kwargs
 

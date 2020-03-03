@@ -131,4 +131,4 @@ class Column(Div):
         if 'css_class' not in kwargs:
             kwargs['css_class'] = 'large-12'
 
-        super(Column, self).__init__(field, *args, **kwargs)
+        super().__init__(field, *args, **kwargs)

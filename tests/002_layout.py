@@ -16,7 +16,7 @@ def test_basic(output_test_path, render_output, rendered_template, helper, clien
     rendered = rendered_template(form, helper=helper)
 
     attempted = render_output(os.path.join(output_test_path, pack,
-                                           "test_basic.html"))
+                                           'test_basic.html'))
     #write_output(output_test_path, pack, "test_basic.html", rendered)
 
     assert parse_html(attempted) == parse_html(rendered)
@@ -29,7 +29,7 @@ def test_layout(output_test_path, render_output, rendered_template, helper, clie
     rendered = rendered_template(form)
 
     attempted = render_output(os.path.join(output_test_path, pack,
-                                           "test_layout.html"))
+                                           'test_layout.html'))
     #write_output(output_test_path, pack, "test_layout.html", rendered)
 
     assert parse_html(attempted) == parse_html(rendered)
@@ -59,14 +59,14 @@ def test_advanced(output_test_path, render_output, rendered_template, helper, cl
             Column(
                 ButtonHolder(Submit('submit', 'Submit')),
             ),
-            css_class="large"
+            css_class='large'
         ),
     )
 
     rendered = rendered_template(form, helper=helper)
 
     attempted = render_output(os.path.join(output_test_path, pack,
-                                           "test_advanced.html"))
+                                           'test_advanced.html'))
     #write_output(output_test_path, pack, "test_advanced.html", rendered)
 
     assert parse_html(attempted) == parse_html(rendered)

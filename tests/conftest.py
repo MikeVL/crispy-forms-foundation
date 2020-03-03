@@ -32,8 +32,8 @@ def render_output():
 
 
 @pytest.fixture(scope='function', params=[
-    "foundation-5",
-    "foundation-6"
+    'foundation-5',
+    'foundation-6'
 ])
 def helper(request):
     """
